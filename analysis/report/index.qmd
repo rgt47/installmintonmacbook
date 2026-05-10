@@ -116,7 +116,7 @@ The following considerations motivated this project:
 Errors and alternative approaches are welcome; see the
 Let's Connect section at the end.
 
-![A workspace ready for a fresh OS installation.](media/images/placeholder-coffee-02.jpg){.img-fluid}
+![A workspace ready for a fresh OS installation.](media/images/ambiance1.png){.img-fluid}
 
 # Prerequisites and Setup
 
