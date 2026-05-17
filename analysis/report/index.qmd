@@ -1,8 +1,5 @@
 ---
 title: "Install Linux Mint on a MacBook Air"
-subtitle: >
-  A practical guide to repurposing aging Apple
-  hardware with a modern Linux distribution
 author: "Ronald 'Ryy' G. Thomas"
 date: today
 draft: false
@@ -25,7 +22,7 @@ format:
   pdf:
     pdf-engine: xelatex
     documentclass: scrartcl
-    toc: true
+    toc: false
     number-sections: true
     colorlinks: true
     papersize: letter
@@ -38,7 +35,7 @@ format:
 
 ![A 13-inch MacBook Air running Linux Mint, with an
 installer USB drive alongside](media/images/hero.jpg){.img-fluid
-width=80%}
+width=80% fig-align="center"}
 
 *Linux Mint: a polished desktop experience on repurposed
 Apple hardware.*
