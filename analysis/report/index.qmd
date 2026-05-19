@@ -59,12 +59,12 @@ drivers needed for this particular MacBook, making the
 installation far more straightforward than most
 alternatives.
 
-This post walks through every step of the process: from
+We walk through every step of the process: from
 downloading the ISO image and burning it onto a USB drive,
 through the installation itself, to post-install
 configuration of the shell, keyboard, display, and
 essential software. Common stumbling blocks are documented
-so that readers can avoid them.
+throughout so that readers can avoid them.
 
 More formally, this post documents the Hardware and Operating
 System layers (Layers 1 and 2) of the Workflow Construct
@@ -295,7 +295,7 @@ problematic on older MacBook hardware.
 
 ## Copy Configuration Files from Host
 
-Connect to the new Mint machine via SSH from your existing
+Connect to the new Mint machine via SSH from an existing
 workstation:
 
 ```sh
@@ -354,7 +354,7 @@ Configure zsh following the companion post on shell setup
 
 ## Set Up Symbolic Links
 
-Run the dotfile linking script to connect your home
+Run the dotfile linking script to connect the home
 directory to configurations stored in Dropbox:
 
 ```sh
@@ -399,7 +399,7 @@ background.
 ## Install Additional Applications
 
 Install Zotero using the Software Manager. Set up Zotero
-syncing with your account credentials.
+syncing with the relevant account credentials.
 
 Add the `vimium` extension to Firefox for keyboard-driven
 browsing.
@@ -413,7 +413,8 @@ dropbox start -i
 ```
 
 The Dropbox startup process launches a browser-based
-sign-in page. Log in with your Dropbox credentials.
+sign-in page. Log in with the appropriate Dropbox
+credentials.
 
 ## Install Docker
 
@@ -527,10 +528,10 @@ Minor errors from packages that failed to load via
 **Attempt 10:** Success. The document rendered to PDF
 without errors.
 
-The lesson: every rendering failure pointed to a specific
-missing dependency. Fixing them one at a time is tedious
-but educational. Each fix teaches you what your workflow
-actually requires.
+We note that every rendering failure pointed to a specific
+missing dependency. Addressing them one at a time is
+tedious but educational; each fix clarifies what a
+workflow actually requires.
 
 ## Things to Watch Out For
 
@@ -547,8 +548,8 @@ actually requires.
    shut down on lid close rather than suspend.
 4. **Docker on Mint is not straightforward.** The default
    Mint repositories do not include current Docker
-   packages. You must add Docker's official GPG key and
-   repository manually.
+   packages. Docker's official GPG key and repository
+   must be added manually.
 5. **Package installation in R is slower on Linux.** R
    packages compile from source on Linux (unlike macOS
    and Windows, which use pre-built binaries). Expect
@@ -692,34 +693,38 @@ environment.*
 # Wrapping Up
 
 Repurposing an aging MacBook Air with Linux Mint proves
-to be a surprisingly practical project. A machine that
-had become too slow for macOS updates can run a complete
-data science environment (R, Python, Docker, vim, and
-Quarto) without any noticeable sluggishness.
+to be a practical project. A machine that had become
+too slow for macOS updates can run a complete data
+science environment (R, Python, Docker, vim, and
+Quarto) without noticeable difficulty.
 
 The most valuable outcome is often not the end result
 but the process itself. Each rendering failure, each
 missing driver, each broken file path teaches something
-specific about what a workflow actually depends on. When
-everything "just works" on macOS, that understanding
-never develops.
+specific about what a workflow actually depends on.
+When everything runs without incident on macOS, that
+understanding never develops.
 
 For those with an old MacBook collecting dust, this
 project is worth attempting. The worst case is an
-afternoon spent learning about one's own toolchain.
-The best case is a fully functional secondary
+afternoon spent learning about one's own toolchain;
+the best case is a fully functional secondary
 workstation.
 
-Main takeaways:
-
-- Linux Mint 22 installs cleanly on a 2016 MacBook Air
-  with minimal driver friction.
-- The full software stack (R, Docker, vim, zsh, Quarto)
-  can be configured in a single sitting.
-- Symbolic linking dotfiles from Dropbox creates a
-  portable, reinstallation-proof configuration.
-- The troubleshooting sequence for rendering is
-  educational: each error reveals a real dependency.
+In conclusion, four points merit emphasis. First,
+Linux Mint 22 installs cleanly on a 2016 MacBook Air
+with minimal driver friction, a result that would have
+been implausible on the same hardware a decade earlier.
+Second, the full software stack (R, Docker, vim, zsh,
+and Quarto) can be configured in a single sitting once
+the base system is running. Third, symbolic linking
+dotfiles from Dropbox creates a portable,
+reinstallation-proof configuration that transfers
+across machines with a single script. Fourth, the
+troubleshooting sequence for document rendering is
+genuinely educational: each error reveals a specific
+dependency that a working macOS environment had
+previously concealed.
 
 # See Also
 
