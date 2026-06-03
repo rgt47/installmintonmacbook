@@ -8,7 +8,7 @@ description: >
   a 2016 MacBook Air, transforming aging Apple
   hardware into a functional data science workstation.
 categories: [linux, macos, r, python]
-image: "media/images/hero.jpg"
+image: "media/images/hero.png"
 document-type: "blog"
 execute:
   echo: true
@@ -36,7 +36,7 @@ cluster-order: 11
 ---
 
 ![A 13-inch MacBook Air running Linux Mint, with an
-installer USB drive alongside](media/images/hero.jpg){.img-fluid
+installer USB drive alongside](media/images/hero.png){.img-fluid
 width=80% fig-align="center"}
 
 *Linux Mint: a polished desktop experience on repurposed
