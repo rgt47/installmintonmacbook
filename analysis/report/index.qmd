@@ -2,7 +2,7 @@
 title: "Install Linux Mint on a MacBook Air"
 author: "Ronald 'Ryy' G. Thomas"
 date: today
-draft: false
+draft: true
 description: >
   A practical guide to installing Linux Mint 22 on
   a 2016 MacBook Air, transforming aging Apple
@@ -251,7 +251,7 @@ created during installation. The base system is ready.
 
 ![A container-based workflow is one of the first things
 to configure on a fresh Linux
-installation](media/images/ambiance2.jpg){.img-fluid}
+installation](media/images/ambiance2.png){.img-fluid}
 
 *Building the software stack: from bare metal to a
 configured development environment.*
@@ -587,7 +587,7 @@ or Dropbox before proceeding.
 
 ![A well-organised workspace makes the difference between
 a system you use and a system you
-abandon](media/images/ambiance3.jpg){.img-fluid}
+abandon](media/images/ambiance3.png){.img-fluid}
 
 *From installation to a configured, productive
 environment.*
