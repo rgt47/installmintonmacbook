@@ -1,15 +1,20 @@
 ---
-title: "Install Linux Mint on a MacBook Air"
-author: "Ronald 'Ryy' G. Thomas"
+title: Install Linux Mint on a MacBook Air
+author: Ronald 'Ryy' G. Thomas
 date: today
-draft: true
-description: >
-  A practical guide to installing Linux Mint 22 on
-  a 2016 MacBook Air, transforming aging Apple
-  hardware into a functional data science workstation.
-categories: [linux, macos, r, python]
-image: "media/images/hero.png"
-document-type: "blog"
+draft: false
+description: 'A practical guide to installing Linux Mint 22 on a 2016 MacBook Air,
+  transforming aging Apple hardware into a functional data science workstation.
+
+  '
+categories:
+- linux
+- macos
+- r
+- python
+- workflow-construct
+image: media/images/hero.png
+document-type: blog
 execute:
   echo: true
   warning: false
@@ -27,8 +32,8 @@ format:
     colorlinks: true
     papersize: letter
     geometry:
-      - margin=1in
-    monofont: 'DejaVu Sans Mono'
+    - margin=1in
+    monofont: DejaVu Sans Mono
     code-overflow: wrap
     code-block-bg: true
 cluster: workflow-construct
