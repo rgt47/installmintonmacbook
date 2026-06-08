@@ -1,6 +1,6 @@
 ---
 title: Install Linux Mint on a MacBook Air
-author: Ronald 'Ryy' G. Thomas
+author: Ronald G. Thomas
 date: today
 draft: false
 description: 'A practical guide to installing Linux Mint 22 on a 2016 MacBook Air,
