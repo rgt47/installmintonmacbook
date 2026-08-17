@@ -1,6 +1,6 @@
 ---
 title: Install Linux Mint on a MacBook Air
-author: Ronald G. Thomas
+author: "Ronald G. Thomas"
 date: today
 draft: true
 description: 'A practical guide to installing Linux Mint 22 on a 2016 MacBook Air,
@@ -20,22 +20,12 @@ execute:
   warning: false
   message: false
 format:
-  html:
-    code-fold: false
-    code-tools: false
-    reference-location: margin
   pdf:
     pdf-engine: xelatex
-    documentclass: scrartcl
+    monofont: 'DejaVu Sans Mono'
+    geometry: margin=1in
+    fontsize: 11pt
     toc: false
-    number-sections: true
-    colorlinks: true
-    papersize: letter
-    geometry:
-    - margin=1in
-    monofont: DejaVu Sans Mono
-    code-overflow: wrap
-    code-block-bg: true
 cluster: workflow-construct
 cluster-order: 11
 ---
