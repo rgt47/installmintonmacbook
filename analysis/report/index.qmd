@@ -1,31 +1,16 @@
 ---
-title: Install Linux Mint on a MacBook Air
+title: "Install Linux Mint on a MacBook Air"
 author: "Ronald G. Thomas"
 date: today
+categories: [linux, macos, r, python, workflow-construct]
+description: "A practical guide to installing Linux Mint 22 on a 2016 MacBook Air, transforming aging Apple hardware into a functional data science workstation."
+image: "media/images/hero.png"
+document-type: "blog"
 draft: true
-description: 'A practical guide to installing Linux Mint 22 on a 2016 MacBook Air,
-  transforming aging Apple hardware into a functional data science workstation.
-
-  '
-categories:
-- linux
-- macos
-- r
-- python
-- workflow-construct
-image: media/images/hero.png
-document-type: blog
 execute:
   echo: true
   warning: false
   message: false
-format:
-  pdf:
-    pdf-engine: xelatex
-    monofont: 'DejaVu Sans Mono'
-    geometry: margin=1in
-    fontsize: 11pt
-    toc: false
 cluster: workflow-construct
 cluster-order: 11
 ---
@@ -110,7 +95,7 @@ The following considerations motivated this project:
 Errors and alternative approaches are welcome; see the
 Let's Connect section at the end.
 
-![A workspace ready for a fresh OS installation.](media/images/ambiance1.png){.img-fluid}
+![A workspace ready for a fresh OS installation.](media/images/ambiance1.png){.img-fluid height=3.5in}
 
 # Prerequisites and Setup
 
@@ -246,7 +231,7 @@ created during installation. The base system is ready.
 
 ![A container-based workflow is one of the first things
 to configure on a fresh Linux
-installation](media/images/ambiance2.png){.img-fluid}
+installation](media/images/ambiance2.png){.img-fluid height=3.5in}
 
 *Building the software stack: from bare metal to a
 configured development environment.*
@@ -582,7 +567,7 @@ or Dropbox before proceeding.
 
 ![A well-organised workspace makes the difference between
 a system you use and a system you
-abandon](media/images/ambiance3.png){.img-fluid}
+abandon](media/images/ambiance3.png){.img-fluid height=3.5in}
 
 *From installation to a configured, productive
 environment.*
