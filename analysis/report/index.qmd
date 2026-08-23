@@ -1,7 +1,7 @@
 ---
 title: "Install Linux Mint on a MacBook Air"
 author: "Ronald G. Thomas"
-date: today
+date: "2026-05-01"
 categories: [linux, macos, r, python, workflow-construct]
 description: "A practical guide to installing Linux Mint 22 on a 2016 MacBook Air, transforming aging Apple hardware into a functional data science workstation."
 image: "media/images/hero.png"
