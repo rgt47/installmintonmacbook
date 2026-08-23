@@ -50,14 +50,14 @@ throughout so that readers can avoid them.
 
 More formally, this post documents the Hardware and Operating
 System layers (Layers 1 and 2) of the Workflow Construct
-described in [post 52](/posts/52-workflow-construct/). The
+described in [A Workflow Construct for the Modern Data Scientist](../wf-construct-overview-anchor/). The
 ThinkPad-with-Mint pairing is the construct's Linux side; it
 mirrors the macOS-with-MacBook side and provides the
 cross-platform substrate on which the higher layers (shell,
 editor, container runtime) are identical. The installation
 walked through here is the bootstrapping that brings a new
 ThinkPad to the point where the dotfiles repository's
-`install.sh` (see [post 24](/posts/24-setupdotfilesongithub/))
+`install.sh` (see [Multi-Laptop macOS Bootstrap](../wf-multi-laptop-dotfiles-bootstrap/))
 can run.
 
 ## Motivations
@@ -712,11 +712,11 @@ previously concealed.
 
 **Related posts:**
 
-- [Configure the Command Line for Data Science
-  Development](../01-configtermzsh/configtermzsh/):
+- [Unix Command-Line Workspace Setup for Data Science
+  Development](../wf-unix-workspace-config/):
   shell and terminal configuration guide
-- [Set Up a GitHub Dotfiles
-  Repository](../24-setupdotfilesongithub/setupdotfilesongithub/):
+- [Multi-Laptop macOS
+  Bootstrap](../wf-multi-laptop-dotfiles-bootstrap/):
   managing configuration files with version control
 
 **Key resources:**
