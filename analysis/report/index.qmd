@@ -15,6 +15,56 @@ cluster: workflow-construct
 cluster-order: 11
 ---
 
+<!-- ============================================================================
+AUTHOR PROVIDES — concrete inputs the blogger must supply
+
+YAML FRONT MATTER
+  [x] title           — filled in
+  [x] date            — 2026-05-01
+  [x] categories      — linux, macos, r, python, workflow-construct
+  [x] description     — filled in
+  [ ] image           — media/images/hero.png referenced; hero.jpg also
+                         present on disk and undocumented, resolve which
+                         is final before publishing
+  [ ] draft: false    — flip when imagery resolved and render verified
+
+NARRATIVE INPUTS
+  [x] Hook sentence   — driver-friction assumption about Linux on Apple hardware
+  [x] Motivations     — 5 bullets
+  [x] Objectives      — 4 numbered goals
+  [x] What is Linux Mint? — definition + comparison to Ubuntu/Fedora
+  [x] Installation walkthrough — ISO download/verify, USB burn, boot, install dialog
+  [x] Troubleshooting sequence — 10 numbered rendering-pipeline attempts
+  [x] Things to Watch Out For — 5 gotchas
+  [x] Daily Workflow  — command table
+  [x] Uninstall / Rollback — macOS restore steps
+  [x] Lessons Learnt  — conceptual / technical / gotchas
+  [x] Limitations     — 6 bullets
+  [x] Opportunities   — 6 numbered next-step extensions
+  [x] Wrapping Up     — conclusion + 4 emphasis points
+  [x] See Also        — related posts + key resources
+
+HARDWARE & REPRODUCIBILITY
+  [x] Target hardware specs documented
+  [x] Software version list
+  [x] Verification commands
+
+IMAGES (4 total: hero + 3 ambiance, all in media/images/)
+  [ ] Hero image (80% width)
+  [ ] Ambiance image 1 (after Objectives)
+  [ ] Ambiance image 2 (after Post-Install Connectivity)
+  [ ] Ambiance image 3 (before Lessons Learnt)
+  [ ] media/images/README.md updated — currently documents unrelated
+      'placeholder-coffee' Unsplash images not present in this
+      directory; the actual hero/ambiance jpg and png files on disk
+      are undocumented and duplicated (both extensions present for
+      all four)
+
+CONTACT & METADATA
+  [x] Author name in YAML matches site author
+  [x] Social links in Let's Connect present
+============================================================================ -->
+
 ![A 13-inch MacBook Air running Linux Mint, with an
 installer USB drive alongside](media/images/hero.png){.img-fluid
 width=80% fig-align="center"}
@@ -90,7 +140,7 @@ The following considerations motivated this project:
 3. Configure the desktop environment, keyboard shortcuts,
    and shell (zsh) for a data science workflow.
 4. Install and validate the core software stack: R, vim,
-   Docker, Dropbox, and essential command-line utilities.
+   Docker, and essential command-line utilities.
 
 Errors and alternative approaches are welcome; see the
 Let's Connect section at the end.
@@ -275,40 +325,6 @@ problematic on older MacBook hardware.
 
 # Installing the Software Stack
 
-## Copy Configuration Files from Host
-
-Connect to the new Mint machine via SSH from an existing
-workstation:
-
-```sh
-# On the Mint machine
-sudo apt install openssh-server
-ip route
-```
-
-Note the IP address from the `ip route` output (e.g.,
-`10.0.1.196`).
-
-From the host machine, copy essential dotfiles:
-
-```sh
-# From the Mac
-scp ~/Dropbox/dotfiles/kickstart/* z@10.0.1.196:~
-```
-
-Key configuration files to transfer:
-
-- `.vimrc`: vim configuration
-- `.zshrc`: zsh shell configuration
-- `.vim/` directory: contains `plug` and `ultisnips`
-
-Optionally, copy a test workspace to verify the rendering
-pipeline later:
-
-```sh
-scp ~/work/teaching/fmph243b/project1 z@10.0.1.196:~
-```
-
 ## Install Core Utilities
 
 Update the package listings and install the essential
@@ -320,7 +336,37 @@ sudo apt upgrade -y
 sudo apt install \
   r-base-core terminator eza tree zsh git vim \
   fzf ripgrep autojump zsh-autosuggestions \
-  zathura -y
+  zathura gh -y
+```
+
+If `gh` is not available from the default repositories,
+follow the official installation instructions at
+[cli.github.com](https://cli.github.com/manual/installation),
+then confirm GitHub access before continuing:
+
+```sh
+gh auth login     # follow the browser prompt
+gh auth status    # should report 'Logged in to github.com'
+```
+
+## Copy a Test Workspace (Optional)
+
+If you want a known-working document on hand to verify
+the rendering pipeline later, connect to the new Mint
+machine via SSH from an existing workstation:
+
+```sh
+# On the Mint machine
+sudo apt install openssh-server
+ip route
+```
+
+Note the IP address from the `ip route` output (e.g.,
+`10.0.1.196`), then from the host machine:
+
+```sh
+# From the Mac
+scp -r ~/work/teaching/fmph243b/project1 z@10.0.1.196:~
 ```
 
 ## Set Up the Shell
@@ -336,47 +382,25 @@ Configure zsh following the companion post on shell setup
 
 ## Set Up Symbolic Links
 
-Run the dotfile linking script to connect the home
-directory to configurations stored in Dropbox:
+With `gh` authenticated, clone the versioned dotfiles
+repository and run its installer, exactly as described in
+[Multi-Laptop macOS Bootstrap](../wf-multi-laptop-dotfiles-bootstrap/):
 
 ```sh
-~/Dropbox/dotfiles/set_up_links.sh
+gh repo clone yourhandle/dotfiles ~/dotfiles
+cd ~/dotfiles
+./install.sh --dry-run   # review every planned symlink first
+./install.sh             # execute
 ```
 
-The script performs the following:
-
-```sh
-#!/bin/zsh
-
-# Move the install-created .config temporarily
-mv ~/.config ~/.config.tmp
-
-# Link dotfiles from Dropbox to Home
-ff=(".zshrc" ".viminfo" ".vimrc" ".local" ".vim" \
-    ".vimplugins" ".config" ".Rprofile")
-for P in "${ff[@]}"
-do
-echo "Linking Dropbox version of $P to Home"
-    ln -v -s "$HOME/Dropbox/dotfiles/$P" "$HOME/$P"
-done
-
-# Restore original .config contents into the linked dir
-cp -R ~/.config.tmp/* ~/.config
-rm -rf ~/.config.tmp
-
-# Link working directories from Dropbox
-dd=("sandbox" "bin" "docs" "prj" "work" "ssh" "shr")
-for P in "${dd[@]}"
-do
-    echo "Linking $P from Dropbox to Home"
-    ln -v -s "$HOME/Dropbox/$P" "$HOME/$P"
-done
-```
-
-**Alternative shortcut:** Install Dropbox first (see
-below), then run `install_app.sh` and `set_up_links.sh`
-from `~/Dropbox/dotfiles/` while Dropbox syncs in the
-background.
+This is the second bootstrap referenced throughout the
+Workflow Construct series, and the most informative one:
+Linux Mint is where any macOS-specific assumption baked
+into `install.sh` (a hardcoded `/opt/homebrew` path, a
+`launchd`-only step) surfaces as a visible failure rather
+than working silently. Fix any such failures in the
+dotfiles repository itself before moving on, so the fix
+benefits every future machine.
 
 ## Install Additional Applications
 
@@ -385,18 +409,6 @@ syncing with the relevant account credentials.
 
 Add the `vimium` extension to Firefox for keyboard-driven
 browsing.
-
-## Install Dropbox
-
-```sh
-sudo apt install nautilus-dropbox
-dropbox autostart y
-dropbox start -i
-```
-
-The Dropbox startup process launches a browser-based
-sign-in page. Log in with the appropriate Dropbox
-credentials.
 
 ## Install Docker
 
@@ -548,7 +560,7 @@ Once the system is configured, these commands become routine:
 | `Rscript -e "rmarkdown::render('file.Rmd')"` | Render an R Markdown report |
 | `docker compose up -d` | Start a containerised analysis environment |
 | `make r` | Enter zzcollab Docker container |
-| `dropbox status` | Check Dropbox sync progress |
+| `cd ~/dotfiles && make update` | Pull dotfiles changes and re-run `install.sh` |
 | `sudo apt update && sudo apt upgrade` | System update |
 
 # Uninstall / Rollback
@@ -562,8 +574,11 @@ To restore macOS on the MacBook:
 4. Install macOS from the USB installer.
 
 This is a full disk wipe. Back up any Linux-side files
-(e.g., `~/prj/`, configuration files) to external storage
-or Dropbox before proceeding.
+that are not already pushed to a git remote (e.g.,
+uncommitted work under `~/prj/`) to external storage
+before proceeding. Configuration files themselves need no
+separate backup: they live in the dotfiles repository on
+GitHub and redeploy with `gh repo clone` and `install.sh`.
 
 ![A well-organised workspace makes the difference between
 a system you use and a system you
@@ -600,18 +615,19 @@ environment.*
 - The `scp` and `ssh` workflow for bootstrapping a new
   machine from an existing one is efficient and
   repeatable.
-- Symbolic linking dotfiles from a cloud-synced directory
-  (Dropbox) to the home directory creates a portable
-  configuration that survives reinstallation.
+- Cloning a version-controlled dotfiles repository with
+  `gh repo clone` and running its `install.sh` creates a
+  portable configuration that survives reinstallation and
+  carries full git history, unlike a cloud-synced folder.
 - Managing Docker on Mint requires understanding GPG keys
   and APT repository configuration at a level that macOS
   package managers abstract away.
 
 **Gotchas and Pitfalls:**
 
-- The order of operations matters: install Dropbox early
-  so that dotfile linking scripts can reference
-  `~/Dropbox/` paths immediately.
+- The order of operations matters: install `git` and `gh`,
+  and complete `gh auth login`, before attempting to clone
+  the dotfiles repository.
 - R packages compile from source on Linux, which means
   system-level dependencies (`libcurl4-openssl-dev`,
   `libxml2-dev`) must be installed before certain R
@@ -699,10 +715,10 @@ with minimal driver friction, a result that would have
 been implausible on the same hardware a decade earlier.
 Second, the full software stack (R, Docker, vim, zsh,
 and Quarto) can be configured in a single sitting once
-the base system is running. Third, symbolic linking
-dotfiles from Dropbox creates a portable,
-reinstallation-proof configuration that transfers
-across machines with a single script. Fourth, the
+the base system is running. Third, cloning the
+dotfiles repository with git and running its installer
+creates a portable, reinstallation-proof configuration
+that transfers across machines with two commands. Fourth, the
 troubleshooting sequence for document rendering is
 genuinely educational: each error reveals a specific
 dependency that a working macOS environment had
@@ -786,6 +802,45 @@ I would enjoy hearing from you if:
 - You want to discuss R programming, data science, or reproducible research.
 - You have questions about anything in this tutorial.
 - You just want to say hello and connect.
+
+<!-- ============================================================================
+PRE-PUBLISH QA CHECKLIST: verify each item BEFORE setting draft: false
+
+[ ] YAML
+    [x] title, date, categories, description filled in
+    [ ] image — confirm final file (hero.jpg vs hero.png) before flipping draft
+    [x] document-type: 'blog'
+    [ ] draft: false
+
+[ ] Narrative complete (no [bracketed] placeholders remaining)
+    [x] grep '\[' index.qmd returns only legitimate code/links/footnotes
+
+[ ] Hardware & reproducibility
+    [x] Target hardware and software versions documented
+    [x] Verification commands present and runnable
+
+[ ] Things to Watch Out For
+    [x] At least 5 gotchas, each with symptom and fix
+
+[ ] Visual design
+    [ ] 1 hero image (width=80%, fig-align=center)
+    [ ] 3 ambiance images (.img-fluid only, no width attribute)
+    [ ] Captions describe actual images (not placeholder text)
+    [ ] media/images/README.md attributes every image actually present
+        in the directory (resolve jpg/png duplication first)
+
+[ ] Content quality
+    [x] Zero emoji
+    [x] Zero em dashes
+    [x] Single quotes in prose
+    [ ] 78-character line wrap throughout
+
+[ ] Render verification
+    [ ] quarto render produces clean HTML with no warnings
+    [ ] PDF renders without overflow or missing images
+    [ ] Hero image displays in /blog/ listing card
+    [ ] Internal links resolve
+============================================================================ -->
 
 ## Related posts in this cluster
 
