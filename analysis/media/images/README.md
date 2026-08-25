@@ -12,18 +12,16 @@ placeholder-coffee pool below:
   "container" pun, matches its caption). Now wired into `index.qmd`.
 - `ambiance3.jpg`: genuine (a well-organized home office, matches
   its caption). Now wired into `index.qmd`.
-- `ambiance1.jpg`: byte-identical to a shared coffee placeholder
-  (`ae25e8cb...`) reused elsewhere on the site. Still needs
-  generation.
+- `ambiance1.jpg`: was byte-identical to a shared coffee placeholder
+  (`ae25e8cb...`) reused elsewhere on the site.
 
-## Pending generation (2026-08-25)
-
-- **Ambiance 1** (after Objectives, replacing the current
-  placeholder): A weathered MacBook shell, opened but powered off,
-  sitting beside a small cardboard box of internal hardware
-  components (a RAM stick, a screwdriver set) on a workbench,
-  suggesting a machine being given new life. Soft overhead light,
-  shallow depth of field, muted grey-and-warm-wood palette.
+**Update (2026-08-25):** `ambiance1.jpg` has been replaced with a
+genuine Gemini generation (via the `gemini-image-generator` tool),
+and all four image slots for this post are now real: a weathered
+laptop shell, opened but powered off, sitting beside a small
+cardboard box of internal hardware components on a workbench,
+suggesting a machine being given new life. Processed via
+`magick -resize 1600x -strip -quality 85` to 1600x873.
 
 ## Placeholder coffee images (temporary ambiance slots)
 

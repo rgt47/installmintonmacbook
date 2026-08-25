@@ -50,15 +50,14 @@ HARDWARE & REPRODUCIBILITY
   [x] Verification commands
 
 IMAGES (4 total: hero + 3 ambiance, all in media/images/)
-  [ ] Hero image (80% width)
-  [ ] Ambiance image 1 (after Objectives)
-  [ ] Ambiance image 2 (after Post-Install Connectivity)
-  [ ] Ambiance image 3 (before Lessons Learnt)
-  [ ] media/images/README.md updated — currently documents unrelated
-      'placeholder-coffee' Unsplash images not present in this
-      directory; the actual hero/ambiance jpg and png files on disk
-      are undocumented and duplicated (both extensions present for
-      all four)
+  [x] Hero image (80% width) — genuine, wired to hero.jpg 2026-08-25
+  [x] Ambiance image 1 (after Objectives) — done (Gemini, 2026-08-25):
+      weathered laptop beside a box of hardware components
+  [x] Ambiance image 2 (after Post-Install Connectivity) — genuine
+      (cargo container ship, a Docker-container pun), wired 2026-08-25
+  [x] Ambiance image 3 (before Lessons Learnt) — genuine (home
+      office desk), wired 2026-08-25
+  [x] media/images/README.md updated
 
 CONTACT & METADATA
   [x] Author name in YAML matches site author
@@ -145,7 +144,10 @@ The following considerations motivated this project:
 Errors and alternative approaches are welcome; see the
 Let's Connect section at the end.
 
-![A workspace ready for a fresh OS installation.](media/images/ambiance1.png){.img-fluid height=3.5in}
+![A weathered laptop shell, opened but powered off, sitting beside
+a small cardboard box of internal hardware components on a
+workbench, suggesting a machine being given new
+life.](media/images/ambiance1.jpg){.img-fluid height=3.5in}
 
 # Prerequisites and Setup
 
@@ -822,12 +824,13 @@ PRE-PUBLISH QA CHECKLIST: verify each item BEFORE setting draft: false
 [ ] Things to Watch Out For
     [x] At least 5 gotchas, each with symptom and fix
 
-[ ] Visual design
-    [ ] 1 hero image (width=80%, fig-align=center)
-    [ ] 3 ambiance images (.img-fluid only, no width attribute)
-    [ ] Captions describe actual images (not placeholder text)
-    [ ] media/images/README.md attributes every image actually present
-        in the directory (resolve jpg/png duplication first)
+[x] Visual design
+    [x] 1 hero image (width=80%, fig-align=center)
+    [x] 3 ambiance images (.img-fluid only, no width attribute) — all
+        genuine as of 2026-08-25
+    [x] Captions describe actual images (not placeholder text)
+    [x] media/images/README.md attributes every image actually present
+        in the directory
 
 [ ] Content quality
     [x] Zero emoji
