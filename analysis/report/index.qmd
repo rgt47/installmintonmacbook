@@ -4,7 +4,7 @@ author: "Ronald G. Thomas"
 date: "2026-05-01"
 categories: [linux, macos, r, python, workflow-construct]
 description: "A practical guide to installing Linux Mint 22 on a 2016 MacBook Air, transforming aging Apple hardware into a functional data science workstation."
-image: "media/images/hero.png"
+image: "media/images/hero.jpg"
 document-type: "blog"
 draft: true
 execute:
@@ -66,7 +66,7 @@ CONTACT & METADATA
 ============================================================================ -->
 
 ![A 13-inch MacBook Air running Linux Mint, with an
-installer USB drive alongside](media/images/hero.png){.img-fluid
+installer USB drive alongside](media/images/hero.jpg){.img-fluid
 width=80% fig-align="center"}
 
 *Linux Mint: a polished desktop experience on repurposed
@@ -281,7 +281,7 @@ created during installation. The base system is ready.
 
 ![A container-based workflow is one of the first things
 to configure on a fresh Linux
-installation](media/images/ambiance2.png){.img-fluid height=3.5in}
+installation](media/images/ambiance2.jpg){.img-fluid height=3.5in}
 
 *Building the software stack: from bare metal to a
 configured development environment.*
@@ -582,7 +582,7 @@ GitHub and redeploy with `gh repo clone` and `install.sh`.
 
 ![A well-organised workspace makes the difference between
 a system you use and a system you
-abandon](media/images/ambiance3.png){.img-fluid height=3.5in}
+abandon](media/images/ambiance3.jpg){.img-fluid height=3.5in}
 
 *From installation to a configured, productive
 environment.*
