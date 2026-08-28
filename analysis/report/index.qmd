@@ -174,7 +174,7 @@ Before beginning, gather the following:
 
 Linux Mint is a community-driven Linux distribution built
 on top of Ubuntu (which is itself built on Debian). It
-emphasises ease of use and ships with the Cinnamon desktop
+emphasizes ease of use and ships with the Cinnamon desktop
 environment, which provides a traditional desktop
 metaphor: a taskbar, a start menu, and a system tray.
 For users migrating from macOS or Windows, Cinnamon feels
@@ -270,7 +270,7 @@ When the installation completes, connect the target
 machine to the internet. If you have ethernet, plug the
 cable directly into the MacBook; Mint will connect
 automatically. For wireless access, Mint may or may not
-recognise the internal wifi hardware. If it does not, use
+recognize the internal wifi hardware. If it does not, use
 a supported external adapter such as the Panda Wireless
 USB modem (supported via the `Ralink RT5372` drivers
 bundled with Mint 22).
@@ -320,7 +320,7 @@ substituted for the 24-inch primary.
 
 ## Power Management
 
-Switch the "suspend on timeout" behaviour to "shut down
+Switch the "suspend on timeout" behavior to "shut down
 immediately" in power settings. This avoids system lock
 issues on lid close or idle timeout, which can be
 problematic on older MacBook hardware.
@@ -532,7 +532,7 @@ workflow actually requires.
 ## Things to Watch Out For
 
 1. **Wifi drivers are the first hurdle.** If the internal
-   wifi card is not recognised, do not waste time
+   wifi card is not recognized, do not waste time
    debugging; plug in ethernet or use a Panda Wireless
    USB adapter and move on.
 2. **macOS file paths break on Linux.** Any configuration
@@ -560,7 +560,7 @@ Once the system is configured, these commands become routine:
 |---------|--------|
 | `quarto render doc.qmd --to pdf` | Render a Quarto document to PDF |
 | `Rscript -e "rmarkdown::render('file.Rmd')"` | Render an R Markdown report |
-| `docker compose up -d` | Start a containerised analysis environment |
+| `docker compose up -d` | Start a containerized analysis environment |
 | `make r` | Enter zzcollab Docker container |
 | `cd ~/dotfiles && make update` | Pull dotfiles changes and re-run `install.sh` |
 | `sudo apt update && sudo apt upgrade` | System update |
@@ -582,7 +582,7 @@ before proceeding. Configuration files themselves need no
 separate backup: they live in the dotfiles repository on
 GitHub and redeploy with `gh repo clone` and `install.sh`.
 
-![A well-organised workspace makes the difference between
+![A well-organized workspace makes the difference between
 a system you use and a system you
 abandon](media/images/ambiance3.jpg){.img-fluid height=3.5in}
 
@@ -591,7 +591,7 @@ environment.*
 
 # What Did We Learn?
 
-## Lessons Learnt
+## Lessons Learned
 
 **Conceptual Understanding:**
 
@@ -656,7 +656,7 @@ environment.*
   and involve additional partitioning complexity.
 - Battery life on Linux is typically shorter than on
   macOS for the same hardware, because Apple's power
-  management optimisations are proprietary and not
+  management optimizations are proprietary and not
   available to Linux kernels.
 - The Docker installation instructions reference the
   Ubuntu "noble" repository (Ubuntu 24.04), which matches
