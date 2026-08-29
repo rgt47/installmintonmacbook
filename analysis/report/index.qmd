@@ -74,9 +74,10 @@ Apple hardware.*
 # Introduction
 
 Many users assume that installing Linux on Apple hardware
-requires fighting obscure driver issues: wifi cards that
+requires fighting obscure driver issues. Wifi cards that
 refuse to connect, trackpads that stutter, and suspend
-modes that brick the machine. This assumption, while once
+modes that brick the machine are the usual worries. This
+assumption, while once
 valid, has become largely outdated. Modern distributions
 like Linux Mint have matured to the point where
 installation on older MacBooks is surprisingly painless.
